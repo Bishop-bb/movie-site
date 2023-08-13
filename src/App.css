@@ -86,11 +86,15 @@
 
 
 #home{
-  background-color: black;
+  /* background-color: black; */
   
-  display: flex;
-  justify-content: center;
+  display: inline;
+  /* justify-content:space-evenly; */
  
   
 } 
 
+#home a{
+  /* font-size: 30px; */
+  padding: 10px
+}

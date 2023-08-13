@@ -14,22 +14,24 @@ function Home(){
 
             const options = {
                 method: 'GET',
-                url: 'https://flixster.p.rapidapi.com/movies/get-opening',
-  params: {countryId: 'usa'},
+                url: 'https://advanced-movie-search.p.rapidapi.com/genre/movie/list',
                 headers: {
-                  'X-RapidAPI-Key': 'd0e581c1a6mshbd1ce190555009bp1e0e37jsn2a7d878ca678',
-                  'X-RapidAPI-Host': 'flixster.p.rapidapi.com',
-                },
+                  'X-RapidAPI-Key': 'c9615ac890msh6644e1a32d93ee6p1716c8jsn3d0fac1d54f2',
+                  'X-RapidAPI-Host': 'advanced-movie-search.p.rapidapi.com'
+                }
               };
             
             const search = {
                 method: 'GET',
-                url: 'https://online-movie-database.p.rapidapi.com/auto-complete',
-                params: {q:`${searchQuery}`},
-                headers: {
-                  'X-RapidAPI-Key': 'd0e581c1a6mshbd1ce190555009bp1e0e37jsn2a7d878ca678',
-                  'X-RapidAPI-Host': 'movies-tv-shows-database.p.rapidapi.com'
+                url: 'https://ott-details.p.rapidapi.com/search',
+                params: {
+                  title: 'Endgame',
+                  page: '1'
                 },
+                headers: {
+                  'X-RapidAPI-Key': 'c9615ac890msh6644e1a32d93ee6p1716c8jsn3d0fac1d54f2',
+                  'X-RapidAPI-Host': 'ott-details.p.rapidapi.com'
+                }
               };
     
           try {
@@ -37,15 +39,15 @@ function Home(){
             let response;
 
 
-            if(!searchQuery.trim()){
+          //   if(!searchQuery.trim()){
                 response = await axios.request(options);
-          }else{
-            response = await axios.request(search);
-          }
+          // }else{
+            // response = await axios.request(search);
+          // }
 
             // const response = await axios.request(options);
-            console.log(response.data.data.opening);
-            setMovies(response.data.data.opening);
+            console.log(response.data.genres);
+            setMovies(response.data.genres);
             setLoading(false);
           } catch (error) {
             console.error(error);
@@ -65,20 +67,27 @@ function Home(){
         <>
 
         
-        <div id="home" className="row m-4">
+        <div   className=" row">
+         
           {/* <h4 className="text-center">Popular Movies</h4> */}
         {loading ? (
           <p>Loading...</p> // Display loading message or spinner
         ) : 
         
         (
-          movies.slice(0, 4).map((movie, index) => (
+          movies.slice(0, 12).map((movie, index) => (
 
        
+            
 
-            <div key={index}  className="col-sm-6 col-md-6 col-lg-3">
-             
-              <img src={movie.posterImage.url} alt={movie.name} />
+            <div id="home"  key={index}  className="">
+              <ul>
+                <li>
+                  <a href="">blessing</a>
+                </li>
+              </ul>
+             {/* <button type="button" class="btn btn-primary">{movie.name}</button> */}
+              {/* <img src={movie.posterImage.url} alt={movie.name} /> */}
               {/* <p className="text-center"><b>{movie.name}</b></p> */}
               {/* <p className="text-center">{movie.releaseDate}</p> */}
               

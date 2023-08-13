@@ -15,7 +15,7 @@ useEffect(() => {
             url: 'https://flixster.p.rapidapi.com/movies/get-popularity?zipCode=90002&radius=50',
             params: { typeMovie: 'NEW_RELEASE'},
             headers: {
-              'X-RapidAPI-Key': 'd0e581c1a6mshbd1ce190555009bp1e0e37jsn2a7d878ca678',
+              'X-RapidAPI-Key': 'c9615ac890msh6644e1a32d93ee6p1716c8jsn3d0fac1d54f2',
               'X-RapidAPI-Host': 'flixster.p.rapidapi.com',
             },
           };
